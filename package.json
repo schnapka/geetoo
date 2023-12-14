@@ -1,0 +1,13 @@
+{
+  "name": "geetoo.com",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "author": "Jiří Schnapka",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.6"
+  }
+}
