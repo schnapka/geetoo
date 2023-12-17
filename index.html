@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Geetoo.com | Jiří Schnapka</title>
     <link href="https://db.onlinewebfonts.com/c/ab115b4a1db57541d7c9c9e39db76c56?family=Biennale" rel="stylesheet">
-    <link rel="stylesheet" href="dist/output.css?v6">
+    <link rel="stylesheet" href="dist/output.css?v7">
 </head>
 
 <body class="font-biennale">
@@ -45,7 +45,7 @@
                     </svg>
 
 
-                    <div class="fixed inset-0 flex flex-col justify-center items-center gap-[38px] bg-secondary z-20 lg:static lg:!flex lg:inset-auto lg:flex-row lg:bg-transparent"
+                    <div class="fixed inset-0 flex flex-col items-start py-16 px-12 gap-[38px] overflow-auto bg-secondary z-20 lg:static lg:inset-auto lg:!flex lg:flex-row lg:p-0 lg:overflow-visible lg:bg-transparent"
                         x-show="open" x-transition:enter="transition ease-out duration-300"
                         x-transition:enter-start="transform opacity-0 translate-x-full"
                         x-transition:enter-end="transform opacity-100 translate-x-0"
@@ -54,49 +54,97 @@
                         x-transition:leave-end="transform opacity-0 translate-x-full">
 
                         <!-- Cross Icon -->
-                        <svg class="absolute right-5 top-5 w-6 h-6" x-show="open" @click="open = !open" fill="none"
+                        <svg class="fixed right-5 top-5 w-6 h-6" x-show="open" @click="open = !open" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                         <ul
-                            class="flex flex-col items-center gap-[38px] leading-[26px] text-lg font-medium lg:flex-row">
-                            <li>
-                                <a href="#" class="flex items-center gap-3">Řešení
-                                    <svg width="9" height="7" viewBox="0 0 9 7" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                            class="flex flex-col gap-3 leading-[26px] text-lg font-medium lg:flex-row lg:items-center lg:gap-[38px]">
+                            <li class="relative" x-data="{ menu: false, isMobile: window.innerWidth < 1024 }"
+                                @mouseenter="if (!isMobile) menu = true" @mouseleave="if (!isMobile) menu = false"
+                                @click="if (isMobile) menu = !menu">
+                                <div class="flex items-center py-2 gap-3 cursor-default">
+                                    Řešení
+                                    <svg x-bind:class="{'rotate-180': menu}" width="9" height="7" viewBox="0 0 9 7"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="m2 2.25 2.5 2.5M7 2.25l-2.5 2.5" stroke="#fff" stroke-width="2"
                                             stroke-linecap="square" />
                                     </svg>
-                                </a>
+                                </div>
+                                <ul class="flex flex-col gap-6 w-full pl-5 py-3 rounded-sm transition ease-out duration-200 lg:absolute lg:top-full lg:left-0 lg:w-80 lg:px-5 lg:bg-white lg:text-secondary lg:shadow-lg"
+                                    x-show="menu" x-transition:enter-start="opacity-0 scale-90"
+                                    x-transition:leave-end="opacity-0 scale-90">
+
+                                    <li><a class="text-md hover:underline" href="#">
+                                            DevOps a Kubernetes
+                                        </a></li>
+                                    <li><a class="text-md hover:underline" href="#">
+                                            Outsourcing IT
+                                        </a></li>
+                                    <li><a class="text-md hover:underline" href="#">
+                                            Geetoo cloudu
+                                        </a></li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href="#" class="flex items-center gap-3">O nás
-                                    <svg width="9" height="7" viewBox="0 0 9 7" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                            <li class="relative" x-data="{ menu: false, isMobile: window.innerWidth < 1024 }"
+                                @mouseenter="if (!isMobile) menu = true" @mouseleave="if (!isMobile) menu = false"
+                                @click="if (isMobile) menu = !menu">
+                                <div class="flex items-center py-2 gap-3 cursor-default">
+                                    O nás
+                                    <svg x-bind:class="{'rotate-180': menu}" width="9" height="7" viewBox="0 0 9 7"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="m2 2.25 2.5 2.5M7 2.25l-2.5 2.5" stroke="#fff" stroke-width="2"
                                             stroke-linecap="square" />
                                     </svg>
-                                </a>
+                                </div>
+                                <ul class="flex flex-col gap-6 w-full pl-5 py-3 rounded-sm transition ease-out duration-200 lg:absolute lg:top-full lg:left-0 lg:w-80 lg:px-5 lg:bg-white lg:text-secondary lg:shadow-lg"
+                                    x-show="menu" x-transition:enter-start="opacity-0 scale-90"
+                                    x-transition:leave-end="opacity-0 scale-90">
+                                    <li><a class="group" href="#">
+                                            <div class="text-md group-hover:underline">Společnost</div>
+                                            <div class="hidden text-sm lg:block">Přečtěte si o naší historii a hodnotách
+                                            </div>
+                                        </a></li>
+                                    <li><a class="group" href="#">
+                                            <div class="text-md group-hover:underline">Reference</div>
+                                            <div class="hidden text-sm lg:block">Podívejte se na úspěšné projekty</div>
+                                        </a></li>
+                                    <li><a class="group" href="#">
+                                            <div class="text-md group-hover:underline">Partneři</div>
+                                            <div class="hidden text-sm lg:block">Seznamte se s našimi obchodními
+                                                partnery</div>
+                                        </a></li>
+                                </ul>
+
                             </li>
-                            <li>
-                                <a href="#" class="">Případové studie</a>
+                            <li class="hover:underline">
+                                <a href="#" class="block py-3">Případové studie</a>
                             </li>
-                            <li>
-                                <a href="#" class="">Novinky</a>
+                            <li class="hover:underline">
+                                <a href="#" class="block py-3">Novinky</a>
                             </li>
-                            <li>
-                                <a href="#" class="">Kontakt</a>
+                            <li class="hover:underline">
+                                <a href="#" class="block py-3">Kontakt</a>
                             </li>
                         </ul>
-                        <button
-                            class="flex justify-between items-center w-[71px] h-[39px] px-[18px] text-sm font-medium border border-white rounded-sm">
-                            CS
-                            <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m2 2 2.5 2.5M7 2 4.5 4.5" stroke="#fff" stroke-width="2"
-                                    stroke-linecap="square" />
-                            </svg>
-                        </button>
+                        <div class="relative cursor-pointer" x-data="{ lang: false, currentLang: 'CS' }">
+                            <div class="flex justify-between items-center w-[71px] h-[39px] px-[18px] text-sm font-medium border border-white rounded-sm"
+                                @click="lang = !lang">
+                                <span x-text="currentLang"></span>
+                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m2 2 2.5 2.5M7 2 4.5 4.5" stroke="#fff" stroke-width="2"
+                                        stroke-linecap="square" />
+                                </svg>
+                            </div>
+                            <ul class="absolute top-full left-0 w-full flex flex-col items-center gap-2 p-2 border border-white border-t-0"
+                                x-show="lang">
+                                <li class="cursor-pointer" @click="lang = !lang, currentLang = 'CS'">CS</li>
+                                <li class="cursor-pointer" @click="lang = !lang, currentLang = 'EN'">EN</li>
+                                <li class="cursor-pointer" @click="lang = !lang, currentLang = 'DE'">DE</li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
