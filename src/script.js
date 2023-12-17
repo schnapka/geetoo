@@ -67,3 +67,7 @@ tl.from(".pd-title span", {
     },
     "-=1"
   );
+
+function handleLanguageChange(newLang) {
+  console.log("Jazyk byl změněn na: " + newLang);
+}

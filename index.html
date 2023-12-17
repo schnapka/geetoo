@@ -140,9 +140,12 @@
                             </div>
                             <ul class="absolute top-full left-0 w-full flex flex-col items-center gap-2 p-2 border border-white border-t-0"
                                 x-show="lang">
-                                <li class="cursor-pointer" @click="lang = !lang, currentLang = 'CS'">CS</li>
-                                <li class="cursor-pointer" @click="lang = !lang, currentLang = 'EN'">EN</li>
-                                <li class="cursor-pointer" @click="lang = !lang, currentLang = 'DE'">DE</li>
+                                <li class="cursor-pointer"
+                                    @click="lang = !lang, currentLang = 'CS'; handleLanguageChange('CS')">CS</li>
+                                <li class="cursor-pointer"
+                                    @click="lang = !lang, currentLang = 'EN'; handleLanguageChange('EN')">EN</li>
+                                <li class="cursor-pointer"
+                                    @click="lang = !lang, currentLang = 'DE'; handleLanguageChange('DE')">DE</li>
                             </ul>
                         </div>
                     </div>
