@@ -2623,6 +2623,10 @@ video {
   content: var(--tw-content);
 }
 
+[x-cloak] {
+  display: none;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
